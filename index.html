@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>jQuery practice</title>
+  <style>
+    .my{
+      transition:0.9s;
+    }
+    .myStyle{
+      border:5px solid green;
+      font-size:48px;
+      transform:roteta(360deg);
+    }
+  </style>
 </head>
 <body>
   <p>jQuery practice</p>
@@ -15,7 +25,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $(function(){
-      $('p').css('color', 'red').hide('slow');
+      $('p').css('color', 'red').css('background','blue');
+      // console.log($('p').css('color'));
+      $('p').addClass('my');
+      $('p').addClass('myStyle');
 
       $('a[href*="com"]').css('color','red');
     });
