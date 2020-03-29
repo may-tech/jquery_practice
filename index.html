@@ -18,19 +18,55 @@
   <p>jQuery practice</p>
   <ul>
     <li><a href="http://google.com">Google</a></li>
-    <li><a href="http://yahoo.co.jp">Yahoo</a></li>
-    <li><a href="http://dotinstall.com">ドットインストール</a></li>
+    <li><a href="http://yahoo.co.jp">Google2</a></li>
+    <li class="hi"></li>
   </ul>
+  <input type="text" value="hello">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $(function(){
       $('p').css('color', 'red').css('background','blue');
-      // console.log($('p').css('color'));
+      console.log($('p').css('color'));
       $('p').addClass('my');
       $('p').addClass('myStyle');
 
-      $('a[href*="com"]').css('color','red');
+      console.log($('a').attr('href'));
+      $('a[href*="google"]').attr('href','http://google.co.jp');
+      console.log($('a').attr('href'));
+
+      $('.hi').text('<a href="">click</a>');
+
+      $('input')
+        .mouseover(function(){
+          $(this).val('hello,again!');
+        })
+        .mouseout(function(){
+          $(this).val('come back!');
+      });
+
+      $('ul').prepend($('<li>').text('fine'));
+      var box=$('<div id="box">').text('1');
+      $('ul').append(box);
+      $('#box').css('width','100px').css('height','100px').css('background','#000');
+
+      $('#box').hide(700);
+      $('#box').show(700);
+      $('#box').fadeOut(700);
+      $('#box').fadeIn(700);
+      $('#box').toggle(700);
+      $('#box').toggle(700);
+
+      $('#box')
+        .mouseover(function(){
+          $(this).css('background','green');
+        })
+        .mouseout(function(){
+          $(this).css('background','blue');
+      });
+
+
+
     });
   </script>
 </body>
