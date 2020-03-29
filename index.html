@@ -21,7 +21,13 @@
     <li><a href="http://yahoo.co.jp">Google2</a></li>
     <li class="hi"></li>
   </ul>
-  <input type="text" value="hello">
+  <input type="text" value="hi">
+  <select id="members" name="memmbers">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select><br>
+  <button>Add!</button>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
@@ -38,10 +44,10 @@
       $('.hi').text('<a href="">click</a>');
 
       $('input')
-        .mouseover(function(){
-          $(this).val('hello,again!');
+        .focus(function(){
+          $(this).val('hello!');
         })
-        .mouseout(function(){
+        .blur(function(){
           $(this).val('come back!');
       });
 
@@ -65,7 +71,18 @@
           $(this).css('background','blue');
       });
 
+      $('#members').change(function(){
+        alert('Are you OK?');
+      });
 
+      $('button').click(function(){
+        var p=$('<p>').text('Wooo!').addClass('vanish');
+        $(this).before(p);
+      });
+
+      $('body').on('click','.vanish',function(){
+        $(this).remove();
+      });
 
     });
   </script>
