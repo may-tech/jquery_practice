@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Game</title>
+  <style>
+    .game{
+      display:flex;
+      flex-wrap: wrap;
+    }
+
+    .box{
+      width: 100px;
+      height: 100px;
+      background: #000;
+      cursor:pointer;
+      text-align:center;
+      line-height: 100px;
+      margin: 0 8px 8px 0;
+      transition:0.8s;
+    }
+
+    .find{
+      background: skyblue;
+      transform:rotate(360deg);
+    }
+
+    .none{
+      background: dimgray;
+      transform:scale(0.9);
+    }
+  </style>
+</head>
+<body>
+  <h1>宝探しゲームです</h1>
+  <p>Let's find!!</p>
+  <div class="game"></div>
+</body>
+</html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      var n=5;
+      var find=Math.floor(Math.random()*n);
+      for(let i=0;i<n;i++){
+        var box=$('<div>').addClass('box');
+        $('.game').append(box).click(function(){
+          if(i===find){
+            $('.box').text('Find!').addClass('find');
+          }else{
+            $('.box').text('none...').addClass('none');
+          };
+        });
+      };
+    }); 
+  </script>
+</body>
+</html>
